@@ -1,0 +1,23 @@
+
+
+##
+## # skeleton-head
+##
+
+
+
+
+##
+## ## apt
+##
+
+core-apt-init
+
+
+
+
+##
+## ## kernel
+##
+
+core-kernel-install

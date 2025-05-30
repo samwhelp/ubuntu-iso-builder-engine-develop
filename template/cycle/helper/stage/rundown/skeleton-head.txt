@@ -21,3 +21,12 @@ core-apt-init
 ##
 
 core-kernel-install
+
+
+
+##
+## ## casper
+##
+
+live-casper-package-install
+live-casper-config-install

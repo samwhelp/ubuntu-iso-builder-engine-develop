@@ -20,7 +20,8 @@ core-apt-init
 ## ## kernel
 ##
 
-core-kernel-install
+core-kernel-package-install
+
 
 
 

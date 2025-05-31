@@ -56,12 +56,38 @@ sys_distro_mount_for_chroot () {
 	## https://github.com/mvallim/live-custom-ubuntu-from-scratch/blob/master/scripts/build.sh#L46-L52
 	##
 
+
+	util_error_echo
+	util_error_echo mount --bind /dev "${REF_DISTRO_IMG_DIR_PATH}"/dev
+	util_error_echo
 	mount --bind /dev "${REF_DISTRO_IMG_DIR_PATH}"/dev || true
+
+
+	util_error_echo
+	util_error_echo mount --bind /run "${REF_DISTRO_IMG_DIR_PATH}"/run
+	util_error_echo
 	mount --bind /run "${REF_DISTRO_IMG_DIR_PATH}"/run || true
 
+
+
+
+	util_error_echo
+	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t proc /proc
+	util_error_echo
 	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t proc /proc || true
+
+
+	util_error_echo
+	util_error_echo 	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t sysfs /sys
+	util_error_echo
 	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t sysfs /sys || true
+
+
+	util_error_echo
+	util_error_echo 	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t devpts /dev/pts
+	util_error_echo
 	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t devpts /dev/pts || true
+
 
 	return 0
 }

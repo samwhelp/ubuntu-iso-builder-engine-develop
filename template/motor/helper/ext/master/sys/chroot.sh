@@ -6,23 +6,23 @@
 
 sys_chroot_run () {
 
-	local img_dir_path="${REF_DISTRO_IMG_DIR_PATH}"
+	local chroot_dir_path="${REF_DISTRO_IMG_DIR_PATH}"
 
 	util_error_echo
-	util_error_echo env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}" ${@}
+	util_error_echo env DEBIAN_FRONTEND=noninteractive chroot "${chroot_dir_path}" ${@}
 	util_error_echo
-	env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}" ${@}
+	env DEBIAN_FRONTEND=noninteractive chroot "${chroot_dir_path}" ${@}
 
 }
 
 sys_chroot () {
 
-	local img_dir_path="${REF_DISTRO_IMG_DIR_PATH}"
+	local chroot_dir_path="${REF_DISTRO_IMG_DIR_PATH}"
 
 	util_error_echo
-	util_error_echo env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}"
+	util_error_echo env DEBIAN_FRONTEND=noninteractive chroot "${chroot_dir_path}"
 	util_error_echo
-	env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}"
+	env DEBIAN_FRONTEND=noninteractive chroot "${chroot_dir_path}"
 
 }
 
@@ -37,15 +37,16 @@ sys_chroot () {
 
 sys_distro_mount_for_chroot () {
 
+	local chroot_dir_path="${REF_DISTRO_IMG_DIR_PATH}"
 
-	if ! [ -d "${REF_DISTRO_IMG_DIR_PATH}" ]; then
+	if ! [ -d "${chroot_dir_path}" ]; then
 
 		util_error_echo
 		util_error_echo "##"
 		util_error_echo "## ## Dir Not Exists"
 		util_error_echo "##"
 		util_error_echo
-		util_error_echo "[Dir for chroot Not Exists]: ${REF_DISTRO_IMG_DIR_PATH}"
+		util_error_echo "[Dir for chroot Not Exists]: ${chroot_dir_path}"
 		util_error_echo
 
 		return 0
@@ -58,35 +59,35 @@ sys_distro_mount_for_chroot () {
 
 
 	util_error_echo
-	util_error_echo mount --bind /dev "${REF_DISTRO_IMG_DIR_PATH}"/dev
+	util_error_echo mount --bind /dev "${chroot_dir_path}"/dev
 	util_error_echo
-	mount --bind /dev "${REF_DISTRO_IMG_DIR_PATH}"/dev || true
-
-
-	util_error_echo
-	util_error_echo mount --bind /run "${REF_DISTRO_IMG_DIR_PATH}"/run
-	util_error_echo
-	mount --bind /run "${REF_DISTRO_IMG_DIR_PATH}"/run || true
-
-
+	mount --bind /dev "${chroot_dir_path}"/dev || true
 
 
 	util_error_echo
-	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t proc /proc
+	util_error_echo mount --bind /run "${chroot_dir_path}"/run
 	util_error_echo
-	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t proc /proc || true
+	mount --bind /run "${chroot_dir_path}"/run || true
+
+
 
 
 	util_error_echo
-	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t sysfs /sys
+	util_error_echo chroot "${chroot_dir_path}" mount none -t proc /proc
 	util_error_echo
-	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t sysfs /sys || true
+	chroot "${chroot_dir_path}" mount none -t proc /proc || true
 
 
 	util_error_echo
-	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t devpts /dev/pts
+	util_error_echo chroot "${chroot_dir_path}" mount none -t sysfs /sys
 	util_error_echo
-	chroot "${REF_DISTRO_IMG_DIR_PATH}" mount none -t devpts /dev/pts || true
+	chroot "${chroot_dir_path}" mount none -t sysfs /sys || true
+
+
+	util_error_echo
+	util_error_echo chroot "${chroot_dir_path}" mount none -t devpts /dev/pts
+	util_error_echo
+	chroot "${chroot_dir_path}" mount none -t devpts /dev/pts || true
 
 
 	return 0
@@ -94,15 +95,16 @@ sys_distro_mount_for_chroot () {
 
 sys_distro_unmount_for_chroot () {
 
+	local chroot_dir_path="${REF_DISTRO_IMG_DIR_PATH}"
 
-	if ! [ -d "${REF_DISTRO_IMG_DIR_PATH}" ]; then
+	if ! [ -d "${chroot_dir_path}" ]; then
 
 		util_error_echo
 		util_error_echo "##"
 		util_error_echo "## ## Dir Not Exists"
 		util_error_echo "##"
 		util_error_echo
-		util_error_echo "[Dir for chroot Not Exists]: ${REF_DISTRO_IMG_DIR_PATH}"
+		util_error_echo "[Dir for chroot Not Exists]: ${chroot_dir_path}"
 		util_error_echo
 
 		return 0
@@ -115,35 +117,35 @@ sys_distro_unmount_for_chroot () {
 
 
 	util_error_echo
-	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /proc
+	util_error_echo chroot "${chroot_dir_path}" umount /proc
 	util_error_echo
-	chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /proc || true
-
-
-	util_error_echo
-	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /sys
-	util_error_echo
-	chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /sys || true
+	chroot "${chroot_dir_path}" umount /proc || true
 
 
 	util_error_echo
-	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /dev/pts
+	util_error_echo chroot "${chroot_dir_path}" umount /sys
 	util_error_echo
-	chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /dev/pts || true
-
-
+	chroot "${chroot_dir_path}" umount /sys || true
 
 
 	util_error_echo
-	util_error_echo umount "${REF_DISTRO_IMG_DIR_PATH}"/dev
+	util_error_echo chroot "${chroot_dir_path}" umount /dev/pts
 	util_error_echo
-	umount "${REF_DISTRO_IMG_DIR_PATH}"/dev || true
+	chroot "${chroot_dir_path}" umount /dev/pts || true
+
+
 
 
 	util_error_echo
-	util_error_echo umount "${REF_DISTRO_IMG_DIR_PATH}"/run
+	util_error_echo umount "${chroot_dir_path}"/dev
 	util_error_echo
-	umount "${REF_DISTRO_IMG_DIR_PATH}"/run || true
+	umount "${chroot_dir_path}"/dev || true
+
+
+	util_error_echo
+	util_error_echo umount "${chroot_dir_path}"/run
+	util_error_echo
+	umount "${chroot_dir_path}"/run || true
 
 
 	return 0

@@ -8,6 +8,15 @@
 
 
 ##
+## ## hostname
+##
+
+base-hostname-config
+
+
+
+
+##
 ## ## apt
 ##
 

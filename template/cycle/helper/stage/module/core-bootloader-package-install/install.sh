@@ -57,8 +57,14 @@ mod_module_bootloader_package_install () {
 ##
 
 
+##
+## apt-get install -y --no-install-recommends
+## apt-get install -y
+##
+
+
 local run_cmd=$(cat << __EOF__
-	apt-get install -y --no-install-recommends
+	apt-get install -y
 		os-prober
 		grub-common
 		grub-gfxpayload-lists

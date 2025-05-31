@@ -113,12 +113,38 @@ sys_distro_unmount_for_chroot () {
 	## https://github.com/mvallim/live-custom-ubuntu-from-scratch/blob/master/scripts/build.sh#L54-L60
 	##
 
+
+	util_error_echo
+	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /proc
+	util_error_echo
 	chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /proc || true
+
+
+	util_error_echo
+	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /sys
+	util_error_echo
 	chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /sys || true
+
+
+	util_error_echo
+	util_error_echo chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /dev/pts
+	util_error_echo
 	chroot "${REF_DISTRO_IMG_DIR_PATH}" umount /dev/pts || true
 
+
+
+
+	util_error_echo
+	util_error_echo umount "${REF_DISTRO_IMG_DIR_PATH}"/dev
+	util_error_echo
 	umount "${REF_DISTRO_IMG_DIR_PATH}"/dev || true
+
+
+	util_error_echo
+	util_error_echo umount "${REF_DISTRO_IMG_DIR_PATH}"/run
+	util_error_echo
 	umount "${REF_DISTRO_IMG_DIR_PATH}"/run || true
+
 
 	return 0
 }

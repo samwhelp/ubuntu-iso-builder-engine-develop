@@ -17,6 +17,15 @@ base-hostname-config
 
 
 ##
+## ## locale
+##
+
+build-locale-config-install
+
+
+
+
+##
 ## ## apt
 ##
 

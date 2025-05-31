@@ -15,6 +15,15 @@ core-initramfs-update
 
 
 
+##
+## ## locale
+##
+
+build-locale-gen
+
+
+
+
 
 
 
@@ -33,15 +42,6 @@ base-machine-id-remove
 ##
 
 base-initctl-diversion-remove
-
-
-
-
-##
-## ## locale
-##
-
-build-locale-gen
 
 
 

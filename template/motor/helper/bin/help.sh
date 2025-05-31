@@ -71,6 +71,8 @@ Example:
 	$ make distro-mount
 	$ make distro-unmount
 
+	$ make chroot
+
 	$ make archive-system-to-squashfs
 	$ make archive-system-to-iso
 

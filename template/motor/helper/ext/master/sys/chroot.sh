@@ -11,7 +11,6 @@ sys_chroot_run () {
 	util_error_echo
 	util_error_echo env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}" ${@}
 	util_error_echo
-
 	env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}" ${@}
 
 }
@@ -23,7 +22,6 @@ sys_chroot () {
 	util_error_echo
 	util_error_echo env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}"
 	util_error_echo
-
 	env DEBIAN_FRONTEND=noninteractive chroot "${img_dir_path}"
 
 }
@@ -41,6 +39,15 @@ sys_distro_mount_for_chroot () {
 
 
 	if ! [ -d "${REF_DISTRO_IMG_DIR_PATH}" ]; then
+
+		util_error_echo
+		util_error_echo "##"
+		util_error_echo "## ## Dir Not Exists"
+		util_error_echo "##"
+		util_error_echo
+		util_error_echo "[Dir for chroot]: ${REF_DISTRO_IMG_DIR_PATH}"
+		util_error_echo
+
 		return 0
 	fi
 

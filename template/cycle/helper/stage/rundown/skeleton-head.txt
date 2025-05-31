@@ -40,10 +40,20 @@ base-hostname-config
 
 
 ##
-## ## hostname
+## ## machine-id
 ##
 
-base-hostname-config
+base-machine-id-config
+
+
+
+
+##
+## ## network
+##
+
+base-network-package-install
+base-network-config-install
 
 
 
@@ -52,8 +62,8 @@ base-hostname-config
 ## ## kernel
 ##
 
-base-network-package-install
-base-network-config-install
+base-kernel-package-install
+base-kernel-config-install
 
 
 

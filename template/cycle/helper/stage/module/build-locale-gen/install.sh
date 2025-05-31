@@ -47,69 +47,6 @@ REF_INIT_DIR_PATH="${REF_BASE_DIR_PATH}/../../../ext"
 ### Head: Model / mod_module_locale_config
 ##
 
-sys_locale_config_locale_conf_via_cmd () {
-
-	local the_locale_lang="LANG=en_US.UTF-8"
-
-	util_error_echo
-	util_error_echo echo "${the_locale_lang}" '|' sudo tee /etc/locale.conf
-	util_error_echo
-	echo "${the_locale_lang}" | sudo tee /etc/locale.conf 2>&1 >/dev/null
-
-
-	return 0
-}
-
-sys_locale_config_locale_gen_via_cmd () {
-
-	local the_locale_gen="en_US.UTF-8 UTF-8"
-
-	util_error_echo
-	util_error_echo echo "${the_locale_gen}" '|' sudo tee -a /etc/locale.gen
-	util_error_echo
-	echo "${the_locale_gen}" | sudo tee -a /etc/locale.gen 2>&1 >/dev/null
-
-
-
-
-	the_locale_gen="C.UTF-8 UTF-8"
-
-	util_error_echo
-	util_error_echo echo "${the_locale_gen}" '|' sudo tee -a /etc/locale.gen
-	util_error_echo
-	echo "${the_locale_gen}" | sudo tee -a /etc/locale.gen 2>&1 >/dev/null
-
-
-
-	return 0
-}
-
-sys_locale_config_via_cmd () {
-
-
-	sys_locale_config_locale_conf_via_cmd
-
-	sys_locale_config_locale_gen_via_cmd
-
-
-	return 0
-}
-
-sys_locale_config_via_file () {
-
-
-	local source_dir_path="${REF_BASE_DIR_PATH}/asset/overlay"
-	local target_dir_path="/"
-
-	util_error_echo
-	util_error_echo cp -rfT "${source_dir_path}" "${target_dir_path}"
-	util_error_echo
-	cp -rfT "${source_dir_path}" "${target_dir_path}"
-
-
-	return 0
-}
-
 sys_locale_gen () {
 
 
@@ -122,26 +59,7 @@ sys_locale_gen () {
 	return 0
 }
 
-sys_locale_update () {
-
-	local the_lang="en_US.UTF-8"
-
-	util_error_echo
-	util_error_echo update-locale LANG=${the_lang} LC_ALL=${the_lang}
-	util_error_echo
-	update-locale LANG=${the_lang} LC_ALL=${the_lang}
-
-
-	return 0
-}
-
 mod_module_locale_config () {
-
-	#sys_locale_config_raw
-
-	sys_locale_config_via_file
-
-
 
 
 	sys_locale_gen

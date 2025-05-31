@@ -45,7 +45,7 @@ sys_distro_mount_for_chroot () {
 		util_error_echo "## ## Dir Not Exists"
 		util_error_echo "##"
 		util_error_echo
-		util_error_echo "[Dir for chroot]: ${REF_DISTRO_IMG_DIR_PATH}"
+		util_error_echo "[Dir for chroot Not Exists]: ${REF_DISTRO_IMG_DIR_PATH}"
 		util_error_echo
 
 		return 0
@@ -96,6 +96,15 @@ sys_distro_unmount_for_chroot () {
 
 
 	if ! [ -d "${REF_DISTRO_IMG_DIR_PATH}" ]; then
+
+		util_error_echo
+		util_error_echo "##"
+		util_error_echo "## ## Dir Not Exists"
+		util_error_echo "##"
+		util_error_echo
+		util_error_echo "[Dir for chroot Not Exists]: ${REF_DISTRO_IMG_DIR_PATH}"
+		util_error_echo
+
 		return 0
 	fi
 

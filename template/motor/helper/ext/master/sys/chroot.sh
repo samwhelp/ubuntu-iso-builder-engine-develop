@@ -92,9 +92,18 @@ sys_distro_unmount_for_chroot () {
 
 sys_chroot_session_prepare_dir () {
 
+
+	util_error_echo
+	util_error_echo rm -rf "${REF_CHROOT_SESSION_DIR_PATH}"
+	util_error_echo
 	rm -rf "${REF_CHROOT_SESSION_DIR_PATH}"
 
+
+	util_error_echo
+	util_error_echo mkdir -p "${REF_CHROOT_SESSION_DIR_PATH}"
+	util_error_echo
 	mkdir -p "${REF_CHROOT_SESSION_DIR_PATH}"
+
 
 	return 0
 }
@@ -102,12 +111,33 @@ sys_chroot_session_prepare_dir () {
 sys_chroot_session_prepare_file () {
 
 
+	util_error_echo
+	util_error_echo cp -rfT "${REF_MASTER_ASSET_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_ASSET_DIR_NAME}"
+	util_error_echo
 	cp -rfT "${REF_MASTER_ASSET_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_ASSET_DIR_NAME}"
+
+
+	util_error_echo
+	util_error_echo cp -rfT "${REF_MASTER_FACTORY_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_FACTORY_DIR_NAME}"
+	util_error_echo
 	cp -rfT "${REF_MASTER_FACTORY_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_FACTORY_DIR_NAME}"
+
+
+	util_error_echo
+	util_error_echo cp -rfT "${REF_MASTER_BASIC_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_BASIC_DIR_NAME}"
+	util_error_echo
 	cp -rfT "${REF_MASTER_BASIC_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_BASIC_DIR_NAME}"
 
 
+	util_error_echo
+	util_error_echo cp -rfT "${REF_MASTER_CYCLE_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_CYCLE_DIR_NAME}"
+	util_error_echo
 	cp -rfT "${REF_MASTER_CYCLE_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_CYCLE_DIR_NAME}"
+
+
+	util_error_echo
+	util_error_echo cp -rfT "${REF_MASTER_OPTION_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_OPTION_DIR_NAME}"
+	util_error_echo
 	cp -rfT "${REF_MASTER_OPTION_DIR_PATH}" "${REF_CHROOT_SESSION_DIR_PATH}/${REF_MASTER_OPTION_DIR_NAME}"
 
 

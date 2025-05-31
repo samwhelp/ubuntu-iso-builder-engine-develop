@@ -69,7 +69,16 @@ base-kernel-config-install
 
 
 ##
-## ## casper
+## ## bootloader
+##
+
+core-bootloader-package-install
+
+
+
+
+##
+## ## casper (live-boot)
 ##
 
 live-casper-package-install

@@ -6,6 +6,18 @@
 
 
 
+##
+## ## initramfs
+##
+
+core-initramfs-update
+
+
+
+
+
+
+
 
 ##
 ## ## machine-id

@@ -73,6 +73,9 @@ Example:
 
 	$ make chroot
 
+	$ make step-renew-chroot-session-script
+	$ make step-chroot-session-process
+
 	$ make archive-system-to-squashfs
 	$ make archive-system-to-iso
 

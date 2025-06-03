@@ -60,7 +60,7 @@ sys_base_files_holding () {
 
 sys_apt_preferences_no_upgrade_base_files () {
 
-cat << __EOF__ | tee /etc/apt/preferences.d/no-upgrade-base-files
+cat << __EOF__ | tee /etc/apt/preferences.d/no-upgrade-base-files 2>&1 >/dev/null
 Package: base-files
 Pin: release o=Ubuntu
 Pin-Priority: -1

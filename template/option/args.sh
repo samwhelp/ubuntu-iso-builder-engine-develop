@@ -99,7 +99,7 @@ REF_BUILD_LANG_MODE="en_US"
 
 
 ##
-## ## REF_BUILD_LANG_MODE
+## ## REF_BUILD_LANG
 ##
 ##
 

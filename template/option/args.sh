@@ -115,7 +115,7 @@ REF_BUILD_LANG="en_US.UTF-8"
 ## > for /etc/locale.gen
 ##
 
-REF_BUILD_LOCALE_GEN="zh_TW.UTF-8 zh_CN.UTF-8 zh_HK.UTF-8 ja_JP.UTF-8 ko_KR.UTF-8 en_US.UTF-8"
+REF_BUILD_LOCALE_GEN="en_US.UTF-8 zh_TW.UTF-8 zh_CN.UTF-8 zh_HK.UTF-8 ja_JP.UTF-8 ko_KR.UTF-8"
 
 
 

@@ -59,7 +59,7 @@ args_var_dump () {
 
 
 	util_debug_echo "REF_BUILD_LOCALE_NAME_PART_LANGUAGE=${REF_BUILD_LOCALE_NAME_PART_LANGUAGE}"
-	util_debug_echo "REF_BUILD_LANG_MODE=${REF_BUILD_LANG_MODE}"
+	util_debug_echo "REF_BUILD_LOCALE_NAME_PART_MAIN=${REF_BUILD_LOCALE_NAME_PART_MAIN}"
 	util_debug_echo "REF_BUILD_LANG=${REF_BUILD_LANG}"
 	util_debug_echo
 

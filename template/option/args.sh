@@ -79,26 +79,6 @@ REF_BUILD_ISO_VOLUME_ID="UBUNTU"
 
 
 ##
-## ## REF_BUILD_LOCALE_NAME_PART_LANGUAGE
-##
-##
-
-REF_BUILD_LOCALE_NAME_PART_LANGUAGE="en"
-
-
-
-
-##
-## ## REF_BUILD_LOCALE_NAME_PART_MAIN
-##
-##
-
-REF_BUILD_LOCALE_NAME_PART_MAIN="en_US"
-
-
-
-
-##
 ## ## REF_BUILD_LOCALE_NAME
 ##
 ## > for /etc/locale.conf

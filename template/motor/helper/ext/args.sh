@@ -58,9 +58,9 @@ args_var_dump () {
 	util_debug_echo
 
 
-	util_debug_echo "REF_BUILD_LOCALE_NAME_PART_LANGUAGE=${REF_BUILD_LOCALE_NAME_PART_LANGUAGE}"
-	util_debug_echo "REF_BUILD_LOCALE_NAME_PART_MAIN=${REF_BUILD_LOCALE_NAME_PART_MAIN}"
 	util_debug_echo "REF_BUILD_LOCALE_NAME=${REF_BUILD_LOCALE_NAME}"
+	util_debug_echo "REF_BUILD_LOCALE_GEN=${REF_BUILD_LOCALE_GEN}"
+	util_debug_echo "REF_BUILD_TIMEZONE=${REF_BUILD_TIMEZONE}"
 	util_debug_echo
 
 

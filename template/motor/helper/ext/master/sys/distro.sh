@@ -794,7 +794,7 @@ cat << __EOF__ > "${target_dir_path}/README.md"
 
 | Key           | Value                 |
 | ------------- | --------------------- |
-| Language      | ${REF_BUILD_LANG}           |
+| Language      | ${REF_BUILD_LOCALE_NAME}           |
 | Version       | ${REF_BUILD_VERSION}                 |
 | Date          | ${date_str}            |
 

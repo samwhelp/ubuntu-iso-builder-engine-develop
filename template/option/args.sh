@@ -99,12 +99,12 @@ REF_BUILD_LOCALE_NAME_PART_MAIN="en_US"
 
 
 ##
-## ## REF_BUILD_LANG
+## ## REF_BUILD_LOCALE_NAME
 ##
 ## > for /etc/locale.conf
 ##
 
-REF_BUILD_LANG="en_US.UTF-8"
+REF_BUILD_LOCALE_NAME="en_US.UTF-8"
 
 
 

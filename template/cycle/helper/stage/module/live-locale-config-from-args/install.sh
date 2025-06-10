@@ -102,7 +102,7 @@ sys_locale_config_timezone () {
 sys_locale_config_from_args () {
 
 
-	local the_lang="${REF_BUILD_LANG}"
+	local the_lang="${REF_BUILD_LOCALE_NAME}"
 	local the_locale_gen="${REF_BUILD_LOCALE_GEN}"
 	local the_timezone="${REF_BUILD_TIMEZONE}"
 
@@ -229,7 +229,7 @@ sys_locale_gen_allowed_list_sort () {
 
 sys_locale_config_validate_args () {
 
-	local the_lang="${REF_BUILD_LANG}"
+	local the_lang="${REF_BUILD_LOCALE_NAME}"
 	local the_locale_gen="${REF_BUILD_LOCALE_GEN}"
 	local the_timezone="${REF_BUILD_TIMEZONE}"
 
@@ -266,11 +266,11 @@ sys_locale_config_validate_args () {
 	## real load
 	##
 
-	REF_BUILD_LANG=${the_lang}
+	REF_BUILD_LOCALE_NAME=${the_lang}
 	REF_BUILD_LOCALE_GEN=${the_locale_gen}
 	REF_BUILD_TIMEZONE=${the_timezone}
 
-	#echo ${REF_BUILD_LANG}
+	#echo ${REF_BUILD_LOCALE_NAME}
 	#echo ${REF_BUILD_LOCALE_GEN}
 	#echo ${REF_BUILD_TIMEZONE}
 

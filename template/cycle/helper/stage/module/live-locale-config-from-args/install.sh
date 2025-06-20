@@ -97,25 +97,32 @@ sys_locale_config_locale_gen () {
 	util_error_echo
 
 
+
+
+cat << __EOF__ | tee -a /etc/locale.gen 2>&1 >/dev/null
+
+##
+## ## Extra
+##
+
+__EOF__
+
+
+
+
 	local the_item=""
 
 	for the_item in ${the_locale_gen}; do
 
 		util_error_echo
-		util_error_echo "## the_item=${the_item}"
+		util_error_echo echo "${the_item}" "UTF-8" '|' tee -a /etc/locale.gen
 		util_error_echo
+		echo "${the_item}" "UTF-8" | tee -a /etc/locale.gen 2>&1 >/dev/null
+
 
 	done
 
 
-
-
-	return 0
-
-	util_error_echo
-	util_error_echo echo "${the_locale_gen}" '|' tee -a /etc/locale.gen
-	util_error_echo
-	echo "${the_locale_gen}" | tee -a /etc/locale.gen 2>&1 >/dev/null
 
 
 	return 0
@@ -144,7 +151,7 @@ sys_locale_config_timezone () {
 
 
 	util_error_echo
-	util_error_echo "rm -f /etc/localtime"
+	util_error_echo ln -sf /usr/share/zoneinfo/${the_timezone} /etc/localtime
 	util_error_echo
 	ln -sf /usr/share/zoneinfo/${the_timezone} /etc/localtime
 

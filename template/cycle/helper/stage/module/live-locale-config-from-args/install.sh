@@ -63,10 +63,26 @@ sys_locale_config_locale_conf () {
 	local the_lang="${1}"
 	local the_locale_lang="LANG=${the_lang}"
 
+
+	util_error_echo
+	util_error_echo "## the_lang=${the_lang}"
+	util_error_echo
+
+
+
+
 	util_error_echo
 	util_error_echo echo "${the_locale_lang}" '|' tee /etc/locale.conf
 	util_error_echo
 	echo "${the_locale_lang}" | tee /etc/locale.conf 2>&1 >/dev/null
+
+
+	util_error_echo
+	util_error_echo cat /etc/locale.conf
+	util_error_echo
+	cat /etc/locale.conf
+
+
 
 
 	return 0
@@ -74,7 +90,23 @@ sys_locale_config_locale_conf () {
 
 sys_locale_config_locale_gen () {
 
-	local the_locale_gen="${1}"
+	local the_locale_gen=${@}
+
+	util_error_echo
+	util_error_echo "## the_locale_gen=${the_locale_gen}"
+	util_error_echo
+
+
+	local the_item=""
+
+	for the_item in ${the_locale_gen}; do
+
+		util_error_echo
+		util_error_echo "## the_item=${the_item}"
+		util_error_echo
+
+	done
+
 
 
 
@@ -92,6 +124,49 @@ sys_locale_config_locale_gen () {
 sys_locale_config_timezone () {
 
 	local the_timezone="${1}"
+
+
+	util_error_echo
+	util_error_echo "## the_timezone=${the_timezone}"
+	util_error_echo
+
+
+
+
+	if [ -f /etc/localtime ]; then
+
+		util_error_echo
+		util_error_echo "rm -f /etc/localtime"
+		util_error_echo
+		rm -f /etc/localtime
+
+	fi
+
+
+	util_error_echo
+	util_error_echo "rm -f /etc/localtime"
+	util_error_echo
+	ln -sf /usr/share/zoneinfo/${the_timezone} /etc/localtime
+
+
+	util_error_echo
+	util_error_echo "ls -al /etc/localtime"
+	util_error_echo
+	ls -al /etc/localtime
+
+
+
+
+	util_error_echo
+	util_error_echo echo "${the_timezone}" '|' tee /etc/timezone
+	util_error_echo
+	echo "${the_timezone}" | tee /etc/timezone 2>&1 >/dev/null
+
+
+	util_error_echo
+	util_error_echo cat /etc/timezone
+	util_error_echo
+	cat /etc/timezone
 
 
 
@@ -322,21 +397,6 @@ mod_module_locale_config () {
 	return 0
 }
 
-mod_test () {
-
-	#mod_module_locale_config_from_args
-
-	#sys_validate_lang "en_US.UTF-8"
-
-	#local the_locale_gen="${REF_BUILD_LOCALE_GEN}"
-
-	#sys_locale_gen_allowed_list ${the_locale_gen}
-
-	echo "TODO: Still in development"
-
-	return 0
-}
-
 ##
 ### Tail: Model / mod_module_locale_config
 ################################################################################
@@ -359,11 +419,14 @@ portal_install () {
 	util_error_echo "[Run Module]: ${script_file_path}"
 
 
-	#mod_module_locale_config
 
 
-	mod_test
+	mod_module_locale_config
 
+
+
+
+	return 0
 }
 
 ##

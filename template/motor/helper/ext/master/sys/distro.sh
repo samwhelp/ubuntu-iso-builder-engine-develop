@@ -575,7 +575,7 @@ sys_distro_iso_create_boot_image_for_uefi_via_grub_mkimage () {
 
 
 	##
-	## ## MODULES dir
+	## ## MODULES dir from Package: grub-efi-amd64-bin
 	## ls -1 /usr/lib/grub/x86_64-efi/
 	##
 

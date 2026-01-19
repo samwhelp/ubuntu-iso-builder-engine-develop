@@ -606,7 +606,7 @@ sys_distro_iso_create_boot_image_for_uefi_via_grub_mkimage () {
 			search_fs_file \
 			gfxterm \
 			gfxterm_background \
-			gfxterm_menu \
+			gfxmenu \
 			test \
 			all_video \
 			loadenv \
